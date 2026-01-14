@@ -2,15 +2,19 @@ import { StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import React from 'react'
 import AntDesign from '@expo/vector-icons/AntDesign';
 
-const AddButton = ({onPress}) => {
+type AddButtonProps = {
+  onPress: () => void;
+};
+
+const AddButton = ({ onPress }: AddButtonProps) => {
   return (
     <TouchableOpacity style={styles.addBtnContainer} onPress={onPress}>
-        <AntDesign name="plus" size={40} color="white" />
+      <AntDesign name="plus" size={40} color="white" />
     </TouchableOpacity>
-  )
-}
+  );
+};
 
-export default AddButton
+export default AddButton;
 
 const styles = StyleSheet.create({
     addBtnContainer: {

@@ -1,31 +1,35 @@
-import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
-import React from "react";
+import React, { useState } from "react";
+import { View, Text, TouchableOpacity, StyleSheet } from "react-native";
 import Ionicons from "@expo/vector-icons/Ionicons";
-import { SafeAreaView } from "react-native-safe-area-context";
+import AppTextInput from "@/components/AppTextInput";
 
-const AddItemScreen = ({ onPress }) => {
+type AddItemScreenProps = {
+  onPress: () => void;
+};
+
+const AddItemScreen = ({ onPress }: AddItemScreenProps) => {
+  const [itemText, setItemText] = useState("");
+
   return (
-    <SafeAreaView>
-      <TouchableOpacity>
-        <Ionicons
-          name="close-circle"
-          size={30}
-          color="red"
-          onPress={onPress}
-          style={styles.closeBtn}
-        />{" "}
+    <View style={styles.container}>
+      <TouchableOpacity onPress={onPress} style={styles.closeBtn}>
+        <Ionicons name="close-circle" size={30} color="red" />
       </TouchableOpacity>
 
       <Text>Add an item...</Text>
-    </SafeAreaView>
+
+      <AppTextInput
+        placeholder="Type item here"
+        value={itemText}          // ✅ required
+        onChangeText={setItemText} // ✅ required
+      />
+    </View>
   );
 };
 
 export default AddItemScreen;
 
 const styles = StyleSheet.create({
-  closeBtn: {
-    alignSelf: "flex-end",
-    margin: 10,
-  },
+  container: { padding: 20 },
+  closeBtn: { alignSelf: "flex-end", marginBottom: 20 },
 });

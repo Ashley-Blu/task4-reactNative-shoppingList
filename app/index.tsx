@@ -1,29 +1,38 @@
-import { Link } from "expo-router";
+import { Link, router } from "expo-router";
 import { Image, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 
-export default function Index({onPress}) {
+type HomeScreenProp = {
+  onPress: () => void;
+}
+
+const Index =({ onPress }: HomeScreenProp) => {
   return (
     <>
       <View style={styles.image}>
-        <Text style={styles.logo}><Text style={styles.span}>List</Text>ify</Text>
+        <Text style={styles.logo}>
+          <Text style={styles.span}>List</Text>ify
+        </Text>
         <Image
           source={require("../assets/images/logo.png")}
           style={{ width: 180, height: 180 }}
         />
-        <Text style={styles.p}>Grocery shopping made easy. <br /><Text style={styles.span}>Listify</Text> your grocery essentials with us to make your shopping experience better
+        <Text style={styles.p}>
+          Grocery shopping made easy. <br />
+          <Text style={styles.span}>Listify</Text> your grocery essentials with
+          us to make your shopping experience better
         </Text>
       </View>
 
       <View style={styles.container}>
-        <TouchableOpacity style={styles.button} onPress={onPress}>
-          <Text style={styles.text}>
-            <Link href={"/list"}>Get started</Link>
-          </Text>
+        <TouchableOpacity style={styles.button} onPress={() => router.push('/list')}>
+          <Text style={styles.text}>Get started</Text>
         </TouchableOpacity>
       </View>
     </>
   );
 }
+
+export default Index;
 
 const styles = StyleSheet.create({
   container: {
@@ -48,22 +57,22 @@ const styles = StyleSheet.create({
   },
 
   image: {
-    marginHorizontal: 'auto',
+    marginHorizontal: "auto",
   },
 
   logo: {
-    color: 'black',
-    fontWeight: 'bold',
+    color: "black",
+    fontWeight: "bold",
     fontSize: 26,
-    fontFamily: 'poppins',
-    marginHorizontal: 'auto',
+    fontFamily: "poppins",
+    marginHorizontal: "auto",
   },
 
   span: {
-    color: '#3c6a6c'
+    color: "#3c6a6c",
   },
 
   p: {
-    textAlign: 'center'
-  }
+    textAlign: "center",
+  },
 });
