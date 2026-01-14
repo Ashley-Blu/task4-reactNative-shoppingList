@@ -1,11 +1,8 @@
-import { Link, router } from "expo-router";
-import { Image, StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import SubmitButton from "@/components/SubmitButton";
+import { router } from "expo-router";
+import { Image, StyleSheet, Text, View } from "react-native";
 
-type HomeScreenProp = {
-  onPress: () => void;
-}
-
-const Index =({ onPress }: HomeScreenProp) => {
+const Index = () => {
   return (
     <>
       <View style={styles.image}>
@@ -14,23 +11,25 @@ const Index =({ onPress }: HomeScreenProp) => {
         </Text>
         <Image
           source={require("../assets/images/logo.png")}
-          style={{ width: 180, height: 180 }}
+          style={styles.image}
         />
         <Text style={styles.p}>
-          Grocery shopping made easy. <br />
-          <Text style={styles.span}>Listify</Text> your grocery essentials with
-          us to make your shopping experience better
+          Grocery shopping made easy. <br /><Text style={styles.span}>Listify</Text>{" "}
+          your grocery essentials with us to make your shopping experience
+          better
         </Text>
       </View>
 
       <View style={styles.container}>
-        <TouchableOpacity style={styles.button} onPress={() => router.push('/list')}>
-          <Text style={styles.text}>Get started</Text>
-        </TouchableOpacity>
+        <SubmitButton
+          title="Get started"
+          onPress={() => router.push("/list")}
+          containerStyle={{ marginBottom: 20 }}
+        />
       </View>
     </>
   );
-}
+};
 
 export default Index;
 
@@ -40,26 +39,11 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
   },
-
-  button: {
-    backgroundColor: "#3c6a6c",
-    padding: 12,
-    paddingHorizontal: 130,
-    alignItems: "center",
-    justifyContent: "center",
-    borderRadius: 8,
-    marginBottom: -250,
-  },
-
-  text: {
-    color: "white",
-    fontWeight: "bold",
-  },
-
   image: {
     marginHorizontal: "auto",
+    width: 180,
+    height: 180,
   },
-
   logo: {
     color: "black",
     fontWeight: "bold",
@@ -67,11 +51,9 @@ const styles = StyleSheet.create({
     fontFamily: "poppins",
     marginHorizontal: "auto",
   },
-
   span: {
     color: "#3c6a6c",
   },
-
   p: {
     textAlign: "center",
   },

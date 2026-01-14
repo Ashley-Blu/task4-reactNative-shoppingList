@@ -1,4 +1,4 @@
-import { StyleSheet, TextInput, View } from "react-native";
+import { StyleSheet, TextInput, View, StyleProp, ViewStyle } from "react-native";
 import React from "react";
 
 type AppTextInputProps = {
@@ -6,6 +6,7 @@ type AppTextInputProps = {
   onChangeText: (text: string) => void;
   placeholder?: string;
   keyboardType?: "default" | "numeric" | "email-address";
+  style?: StyleProp<ViewStyle>; 
 };
 
 const AppTextInput = ({
@@ -13,10 +14,11 @@ const AppTextInput = ({
   onChangeText,
   placeholder,
   keyboardType = "default",
+  style,
   ...otherProps
 }: AppTextInputProps) => {
   return (
-    <View style={styles.container}>
+    <View style={[styles.container, style]}>
       <TextInput
         style={styles.input}
         value={value}
