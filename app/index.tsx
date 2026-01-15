@@ -14,7 +14,7 @@ const Index = () => {
           style={styles.image}
         />
         <Text style={styles.p}>
-          Grocery shopping made easy. <br /><Text style={styles.span}>Listify</Text>{" "}
+          Grocery shopping made easy. <Text style={styles.span}>Listify</Text>{" "}
           your grocery essentials with us to make your shopping experience
           better
         </Text>
@@ -38,23 +38,32 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
+    paddingHorizontal: 20,
   },
   image: {
     marginHorizontal: "auto",
-    width: 180,
-    height: 180,
+    width: 200,
+    height: 200,
+    marginBottom: 30,
   },
   logo: {
     color: "black",
-    fontWeight: "bold",
-    fontSize: 26,
+    fontWeight: "700",
+    fontSize: 34,
     fontFamily: "poppins",
     marginHorizontal: "auto",
+    marginBottom: 18,
+    textAlign: "center",
+    letterSpacing: 0.5,
   },
   span: {
     color: "#3c6a6c",
   },
   p: {
     textAlign: "center",
+    fontSize: 16,
+    lineHeight: 24,
+    color: "#555",
+    marginBottom: 32,
   },
 });
