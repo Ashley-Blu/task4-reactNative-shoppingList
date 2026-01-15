@@ -1,5 +1,11 @@
 import React from "react";
-import { TouchableOpacity, Text, StyleSheet, ViewStyle, TextStyle } from "react-native";
+import {
+  StyleSheet,
+  Text,
+  TextStyle,
+  TouchableOpacity,
+  ViewStyle,
+} from "react-native";
 
 type PrimaryButtonProps = {
   title: string;
@@ -8,7 +14,12 @@ type PrimaryButtonProps = {
   textStyle?: TextStyle;
 };
 
-const PrimaryButton = ({ title, onPress, containerStyle, textStyle }: PrimaryButtonProps) => {
+
+const PrimaryButton = ({  title,
+  onPress,
+  containerStyle,
+  textStyle,
+}: PrimaryButtonProps) => {
   return (
     <TouchableOpacity style={[styles.button, containerStyle]} onPress={onPress}>
       <Text style={[styles.text, textStyle]}>{title}</Text>
@@ -21,14 +32,16 @@ export default PrimaryButton;
 const styles = StyleSheet.create({
   button: {
     backgroundColor: "#3c6a6c",
-    padding: 12,
-    paddingHorizontal: 130,
+    paddingVertical: 14,
+    paddingHorizontal: 10,
     alignItems: "center",
     justifyContent: "center",
-    borderRadius: 8,
+    borderRadius: 10,
   },
   text: {
     color: "white",
-    fontWeight: "bold",
+    fontWeight: "700",
+    fontSize: 16,
+    letterSpacing: 0.3,
   },
 });
