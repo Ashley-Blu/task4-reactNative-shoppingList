@@ -1,12 +1,18 @@
-import { StyleSheet, TextInput, View, StyleProp, ViewStyle } from "react-native";
 import React from "react";
+import {
+  StyleProp,
+  StyleSheet,
+  TextInput,
+  View,
+  ViewStyle,
+} from "react-native";
 
 type AppTextInputProps = {
   value: string;
   onChangeText: (text: string) => void;
   placeholder?: string;
   keyboardType?: "default" | "numeric" | "email-address";
-  style?: StyleProp<ViewStyle>; 
+  style?: StyleProp<ViewStyle>;
 };
 
 const AppTextInput = ({
@@ -36,13 +42,16 @@ export default AppTextInput;
 const styles = StyleSheet.create({
   container: {
     width: "100%",
-    marginBottom: 14,
+    marginBottom: 16,
   },
   input: {
-    borderWidth: 1,
+    borderWidth: 1.5,
     borderColor: "#D0D5DD",
-    borderRadius: 8,
-    padding: 10,
-    fontSize: 15,
+    borderRadius: 10,
+    paddingHorizontal: 14,
+    paddingVertical: 12,
+    fontSize: 16,
+    backgroundColor: "#f9f9f9",
+    color: "#333",
   },
 });
